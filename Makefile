@@ -1,15 +1,11 @@
-CFLAGS?=-O2 -g -Wall -W $(shell pkg-config --cflags librtlsdr)
-LDLIBS+=$(shell pkg-config --libs librtlsdr) -lpthread -lm
-CC?=gcc
-PROGNAME=dump1090
+CC=gcc
+CFLAGS=-Wall -O2
+LDFLAGS=-lm
 
-all: dump1090
+all: dump-RID
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c $<
-
-dump1090: dump1090.o anet.o
-	$(CC) -g -o dump1090 dump1090.o anet.o $(LDFLAGS) $(LDLIBS)
+dump-RID: dump-RID.c anet.c
+	$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 
 clean:
-	rm -f *.o dump1090
+	rm -f dump-RID
