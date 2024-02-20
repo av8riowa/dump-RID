@@ -1,6 +1,21 @@
+# Ignore compiled binaries
 *.o
-dump1090
-testfiles/*.bin
-misc
-frames.js
-.*.swp
+*.out
+
+# Ignore executables
+dump-RID
+
+# Ignore build/ directory
+build/
+
+# Ignore any generated files or logs
+*.log
+*.txt
+
+# Ignore user-specific files
+*.swp
+*.swo
+
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
